@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PaintballApp.Views.AddUpdateProblem"
+             Title="Aggiungi / Aggiorna problema">
+    <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="Titolo descrittivo"/>
+            <Entry Text="{Binding ProblemDetail.Title}" Placeholder="Titolo descrittivo" />
+            <BoxView HeightRequest="0.8" Color="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Descrizione"/>
+            <Entry Text="{Binding ProblemDetail.Description}" Placeholder="Descrizione" />
+            <BoxView HeightRequest="0.8" Color="Gray" />
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout>
+            <Label Text="Possibile soluzione"/>
+            <Entry Text="{Binding ProblemDetail.PossibleSolution}" Placeholder="Possibile soluzione" />
+            <BoxView HeightRequest="0.8" Color="Gray" />
+        </VerticalStackLayout>
+
+        <Button Text="Save" Command="{Binding AddUpdateProblemCommand}"/>
+
+    </StackLayout>
+</ContentPage>

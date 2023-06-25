@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:PaintballApp.Models"
+             xmlns:viewModels="clr-namespace:PaintballApp.ViewModels"
+             x:DataType="viewModels:ProblemsListPageViewModel"
+             x:Class="PaintballApp.Views.ProblemsListPage"
+             Title="Lista problemi">
+    <StackLayout>
+        <Button Text="Aggiungi problema" Command="{Binding AddUpdProblemCommand}" HorizontalOptions="EndAndExpand" />
+        <CollectionView ItemsSource="{Binding Problems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Problem">
+                    <Frame Margin="10" Padding="10">
+                        <StackLayout Margin="10">
+                            <HorizontalStackLayout Spacing="15">
+                                <Label Text="{Binding Title}"/>
+                                <Label Text="{Binding Description}"/>
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:ProblemsListPageViewModel}},Path=DisplayActionCommand}"
+                                          CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
